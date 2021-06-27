@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :addresses, except: [:new, :show]
  end
  namespace :admin do
-  resources :sessions, only: [:new, :create, :destroy]
+ # resources :sessions, only: [:new, :create, :destroy]
   get "homes/top" => "homes#top"
   resources :items, except: [:destroy]
   resources :genres, except: [:new, :show, :destroy]
@@ -24,4 +24,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :update]
   resources :order_details, only: [:update]
  end
+ devise_for :customers
+ devise_for :admins, controllers: {
+  sessions: 'admins/sessions'
+ }
 end
