@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+ devise_for :customers
+ devise_for :admins, controllers: {
+  sessions: 'admins/sessions'
+ }
  scope module: :public do
   root to: "homes#top"
   get "homes/about" => "homes#about"
@@ -17,15 +21,12 @@ Rails.application.routes.draw do
  end
  namespace :admin do
  # resources :sessions, only: [:new, :create, :destroy]
-  get "homes/top" => "homes#top"
+  get "" => "homes#top"
   resources :items, except: [:destroy]
   resources :genres, except: [:new, :show, :destroy]
   resources :customers, except: [:new, :create, :destroy]
   resources :orders, only: [:show, :update]
   resources :order_details, only: [:update]
  end
- devise_for :customers
- devise_for :admins, controllers: {
-  sessions: 'admins/sessions'
- }
+
 end

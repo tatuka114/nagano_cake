@@ -3,7 +3,8 @@
   </div>
   <div class="col-md-10 offset-md-1">
     <h2>管理者ログイン</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+    <%#= form_for(resource, as: resource_name, url: admin_session_path) do |f| %>
       <div class="field">
         <%= f.label :"メールアドレス" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -22,7 +23,7 @@
       <% end %>
 
       <div class="row">
-        <%= link_to "ログイン", admin_homes_top_path, class: "btn btn-info btn-sm btn-block" %>
+        <%= f.submit "ログイン", class: "btn btn-primary btn-lg center-block" %>
       </div>
     <% end %>
 
