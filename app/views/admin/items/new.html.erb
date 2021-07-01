@@ -1,7 +1,29 @@
 <div class="container">
   <div class="row">
+    <h2>商品新規登録</h2>
     <div class="col">
-
+      <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+        <div class="field">
+          <%= f.label :"商品画像" %>
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="field">
+          <%= f.label :"商品名" %>
+          
+        </div>
+        <div class="field">
+          <%= f.label :"商品説明" %>
+          
+        </div>
+        <div class="field">
+          <%= f.label :"ジャンル" %>
+          
+        </div>
+        <div class="field">
+          <%= f.label :"税抜価格" %>
+          
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

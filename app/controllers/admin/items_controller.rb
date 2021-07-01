@@ -15,7 +15,7 @@ class Admin::ItemsController < ApplicationController
     if @item.save
   	   redirect_to admin_item_path(@item)
   	else
-  	   render "new"
+  	  render :new
   	end
   end
   def edit
