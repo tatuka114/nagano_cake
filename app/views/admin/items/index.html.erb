@@ -17,17 +17,17 @@
         </thead>
         <tbody>
           <% @items.each do |item| %>
-          <tr>
-            <td><%= item.id %></td>
-            <td>
-              <%= link_to admin_item_path(item.id) do %>
-                <%= item.item_name %>
-              <% end %>
-            </td>
-            <td><%= item.item_price %></td>
-            <td><%= item.genre.name %></td>
-            <!--<td></td>-->
-          </tr>
+            <tr>
+              <td><%= item.id %></td>
+              <td>
+                <%= link_to admin_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+              <td><%= item.price %></td>
+              <td><%= item.genre.name %></td>
+              <!--<td></td>-->
+            </tr>
           <% end %>
         </tbody>
       </table>
